@@ -1,13 +1,17 @@
 apiVersion: backstage.io/v1alpha1
-kind: Location
+kind: Component
 metadata:
-  name: tap-gui-catalog-info
-  description: A sample catalog for Backstage
+  name: tanzu-java-web-app
+  description: Tanzu Java Web App
+  tags:
+    - app-accelerator
+    - java
+    - spring
+    - web
+    - tanzu
   annotations:
-    'backstage.io/techdocs-ref': dir:.
+    'backstage.io/kubernetes-label-selector': 'app.kubernetes.io/part-of=tanzu-java-web-app'
 spec:
-  targets:
-    - ./components/tap-gui.yaml
-    - ./groups/default-org.yaml
-    - ./systems/tap-gui-system.yaml
-    - ./domains/tap-gui-domain.yaml
+  type: service
+  lifecycle: experimental
+  owner: default-team
